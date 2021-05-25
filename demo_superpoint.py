@@ -507,7 +507,7 @@ class VideoStreamer(object):
       self.camera = True
     else:
       # Try to open as a video.
-      self.cap = cv2.VideoCapture(basedir)
+      self.cap = cv2.VideoCapture(basedir, cv2.CAP_FFMPEG)
       lastbit = basedir[-4:len(basedir)]
       if (type(self.cap) == list or not self.cap.isOpened()) and (lastbit == '.mp4'):
         raise IOError('Cannot open movie file')
